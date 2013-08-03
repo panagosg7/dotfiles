@@ -243,7 +243,7 @@ ext () {
 
   
 # Export PATH
-export PATH=./node_modules/.bin:$HOME/.bin/zgrviewer:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:$HOME/.cabal/bin:$HOME/.root/bin
+export PATH=./node_modules/.bin:$HOME/.bin/zgrviewer:$HOME/.root/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/games:$HOME/.cabal/bin:$HOME/.root/bin
 
 export TERM='xterm-256color'
 

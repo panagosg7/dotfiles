@@ -69,7 +69,7 @@ Bundle 'scrooloose/syntastic'
 
 " Hdevtools: Haskell development tools
 " vim-hdevtools require hdevtools - installed through cabal
-Bundle 'bitc/vim-hdevtools'
+Bundle 'YPares/vim-hdevtools'
 
 " Easymotion: Hit \\ to get easy access to places around your current position
 Bundle 'Lokaltog/vim-easymotion'
@@ -568,6 +568,7 @@ let g:Powerline_symbols = 'fancy'
 
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 
 " You will probably have to add some extra options for hdevtools, for example:
 "let g:hdevtools_options = '-g-hide-package -glanguage-ecmascript-pp-0.11.1 

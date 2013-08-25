@@ -325,7 +325,6 @@ set foldenable
 set foldmethod=syntax
 
 " Tab Manupulation
-map <C-O> :tabnew 
 map <C-Q> :q<CR>
 set selectmode=mouse,key
 map <F11>  :tabp<CR>

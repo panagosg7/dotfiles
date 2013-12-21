@@ -23,3 +23,7 @@ For tag support you are going to need Exuberant tags (*ctags*).
 
 ####Haskell
 The relevant plugins require `hdevtools`, `ghc-mod` and `lushtags` installed. These can be installed through cabal.
+
+----------
+### TODO
+ * Something is causing a delay at startup.

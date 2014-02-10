@@ -118,6 +118,8 @@ Bundle 'xolox/vim-session'
 " VimMisc: Miscellaneous auto-load Vim scripts - needed for session
 Bundle 'xolox/vim-misc'
 
+" TypeScript
+Bundle 'https://github.com/leafgarland/typescript-vim.git'
 
 " vim-scripts repos
 " Bundle 'L9'
@@ -178,10 +180,11 @@ set sw=2
 set textwidth=80
 
 " Background Color
-set background=light
+set background=dark
 
 " Colorscheme
-colorscheme github
+colorscheme solarized
+
 
 " Change the color of the current  line 
 " XXX: slowdown => following two lines are commented out

@@ -180,7 +180,7 @@ set sw=2
 set textwidth=80
 
 " Background Color
-set background=dark
+set background=light
 
 " Colorscheme
 colorscheme solarized

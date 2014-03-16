@@ -136,6 +136,9 @@ alias goto='ssh goto.ucsd.edu'
 alias syno='ssh pvekris.synology.me'
 alias synoroot='ssh root@pvekris.synology.me'
 
+#hsenv
+alias hs='source .hsenv/bin/activate'
+
 # less with color
 alias vless='vim -u /usr/share/vim/vim73/macros/less.vim'
 

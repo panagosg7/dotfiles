@@ -52,8 +52,8 @@ Bundle 'sjl/gundo.vim'
 " Tagbar: display tabs (not very useful so far...)
 Bundle 'majutsushi/tagbar'
 
-" Solarized: fancy colorscheme
-Bundle 'altercation/vim-colors-solarized'
+" Solarized: fancy colorscheme (my fork)
+Bundle 'panagosg7/vim-colors-solarized'
 
 "VimMarkDown: syntax for markdown
 Bundle 'plasticboy/vim-markdown'

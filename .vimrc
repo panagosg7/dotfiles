@@ -119,7 +119,12 @@ Bundle 'xolox/vim-session'
 Bundle 'xolox/vim-misc'
 
 " TypeScript
-Bundle 'https://github.com/leafgarland/typescript-vim.git'
+Bundle 'leafgarland/typescript-vim'
+
+" Vim-Annotations
+Bundle 'panagosg7/vim-annotations'
+
+Bundle 'reedes/vim-colors-pencil'
 
 " vim-scripts repos
 " Bundle 'L9'
@@ -585,7 +590,11 @@ au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 " Syntastic options
 "------------------------------------------------------------
 
-let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_mode_map = { 'mode'            : 'passive', 'active_filetypes': [ 'tsc' ] }
+
+let g:syntastic_haskell_check = [ 'hdevtools' ]
+
+let g:syntastic_typescript_check = [ 'tsc' ]
 
 
 "------------------------------------------------------------
@@ -640,3 +649,16 @@ let g:session_autosave = 'no'
 " Tabman options
 "------------------------------------------------------------
 let g:tabman_number = 0
+
+
+
+"------------------------------------------------------------
+" GVim Options
+"------------------------------------------------------------
+
+"if has("gui_running")
+"  if has("gui_gtk2")
+"    set guifont=Inconsolata\ \for\ PowerLine\ 10
+"    colorscheme pencil
+"  endif
+"endif

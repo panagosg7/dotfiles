@@ -81,7 +81,8 @@ Bundle 'embear/vim-localvimrc'
 Bundle 'gregsexton/gitv'
 
 " Ack: Grep-like tool within Vim - Requires acq-grep
-Bundle 'panagosg7/ack.vim'
+" Bundle 'panagosg7/ack.vim'
+Bundle 'mileszs/ack.vim'
 
 " CtrlP: Fuzzy Finder !!!
 Bundle 'kien/ctrlp.vim'
@@ -468,7 +469,6 @@ vnoremap <Esc>[OD h
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 
-
 "------------------------------------------------------------
 " MISC
 "------------------------------------------------------------
@@ -590,7 +590,7 @@ au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 " Syntastic options
 "------------------------------------------------------------
 
-let g:syntastic_mode_map = { 'mode'            : 'passive', 'active_filetypes': [ 'tsc' ] }
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [ ] }
 
 let g:syntastic_haskell_check = [ 'hdevtools' ]
 
@@ -662,3 +662,7 @@ let g:tabman_number = 0
 "    colorscheme pencil
 "  endif
 "endif
+
+
+let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
+

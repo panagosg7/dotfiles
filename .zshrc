@@ -262,4 +262,8 @@ if [[ `hostname -s` != 'goto' ]]; then
   source $HOME/.git_prompt.zsh
 fi
 
+bindkey "${terminfo[khome]}" beginning-of-line 
+bindkey "${terminfo[kend]}" end-of-line 
 
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word

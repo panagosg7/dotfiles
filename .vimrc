@@ -61,8 +61,8 @@ Bundle 'plasticboy/vim-markdown'
 " Powerline: fancy command line
 Bundle 'Lokaltog/vim-powerline'
 
-" Signify: show git information on the side
-Bundle 'mhinz/vim-signify'
+" Gitgutter: show git information on the side
+Bundle 'airblade/vim-gitgutter'
 
 " Syntastic: syntax checking plugin
 Bundle 'scrooloose/syntastic'
@@ -665,4 +665,15 @@ let g:tabman_number = 0
 
 
 let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
+
+
+
+
+function! FindCabalSandboxRoot()
+  return finddir('.cabal-sandbox', './;')
+endfunction
+
+function! FindCabalSandboxRootPackageConf()
+  return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
+endfunction
 

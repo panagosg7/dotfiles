@@ -53,7 +53,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'majutsushi/tagbar'
 
 " Solarized: fancy colorscheme (my fork)
-Bundle 'panagosg7/vim-colors-solarized'
+" Bundle 'panagosg7/vim-colors-solarized'
 
 "VimMarkDown: syntax for markdown
 Bundle 'plasticboy/vim-markdown'
@@ -104,11 +104,11 @@ Bundle 'vim-scripts/ZoomWin'
 Bundle 'nvie/vim-togglemouse'
 
 " Hoogle: use hoogle search in Vim
-Bundle 'Twinside/vim-hoogle'
+" Bundle 'Twinside/vim-hoogle'
 
 " Haskellmode: support for GHCI in Vim
 " This fork fixes the command line height
-Bundle 'kniren/haskellmode-vim'
+" Bundle 'kniren/haskellmode-vim'
 
 " HaskellFold: better Haskell folding
 Bundle 'Twinside/vim-haskellFold'
@@ -189,7 +189,7 @@ set textwidth=80
 set background=light
 
 " Colorscheme
-colorscheme solarized
+" colorscheme solarized
 
 
 " Change the color of the current  line 

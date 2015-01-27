@@ -1,6 +1,8 @@
 # Load Antigen
 source "$HOME/.antigen/antigen.zsh"
 
+CURRENT_OS=`uname`
+
 # Load various lib files
 antigen bundle robbyrussell/oh-my-zsh lib/
 
@@ -48,7 +50,6 @@ elif [[ $CURRENT_OS == 'Cygwin' ]]; then
     antigen bundle cygwin
 fi
 
-# Restore this!!!
 antigen bundle panagosg7/zsh-files
 
 antigen-apply

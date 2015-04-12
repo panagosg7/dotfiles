@@ -46,20 +46,23 @@ Bundle 'jistr/vim-nerdtree-tabs'
 "NerdCommenter: easy commenting
 Bundle 'scrooloose/nerdcommenter'
 
-" Gundo: browse the undo tree
-Bundle 'sjl/gundo.vim'
+" Undo-Tree: browse the undo tree
+Bundle 'mbbill/undotree'
 
 " Tagbar: display tabs (not very useful so far...)
 Bundle 'majutsushi/tagbar'
 
 " Solarized: fancy colorscheme (my fork)
-" Bundle 'panagosg7/vim-colors-solarized'
+Bundle 'panagosg7/vim-colors-solarized'
 
 "VimMarkDown: syntax for markdown
 Bundle 'plasticboy/vim-markdown'
 
 " Powerline: fancy command line
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
+
+" Airline
+Bundle 'bling/vim-airline'
 
 " Gitgutter: show git information on the side
 Bundle 'airblade/vim-gitgutter'
@@ -125,7 +128,11 @@ Bundle 'leafgarland/typescript-vim'
 " Vim-Annotations
 Bundle 'panagosg7/vim-annotations'
 
-Bundle 'reedes/vim-colors-pencil'
+" Vim NeoComplete
+Bundle 'Shougo/neocomplete.vim'
+
+
+
 
 " vim-scripts repos
 " Bundle 'L9'
@@ -186,16 +193,19 @@ set sw=2
 set textwidth=80
 
 " Background Color
-set background=light
+set background=dark
+
+set t_Co=16                        " force vim to use 256 colors
+" let g:solarized_termcolors=256      " use solarized 256 fallback
 
 " Colorscheme
-" colorscheme solarized
+colorscheme solarized
 
 
 " Change the color of the current  line 
 " XXX: slowdown => following two lines are commented out
-"set cursorline
-"hi CursorLine term=bold cterm=bold guibg=Grey40
+" set cursorline
+" hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Font
 " set guifont=monospace\ 8
@@ -418,21 +428,34 @@ if has("gui")
   cnoremap <M-Space> <C-C>:simalt ~<CR>
 endif
 
-" CTRL-A is Select all
-noremap <C-A> gggH<C-O>G
-inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
-cnoremap <C-A> <C-C>gggH<C-O>G
-onoremap <C-A> <C-C>gggH<C-O>G
-snoremap <C-A> <C-C>gggH<C-O>G
-xnoremap <C-A> <C-C>ggVG
+"" CTRL-A is Select all
+"noremap <C-A> gggH<C-O>G
+"inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+"cnoremap <C-A> <C-C>gggH<C-O>G
+"onoremap <C-A> <C-C>gggH<C-O>G
+"snoremap <C-A> <C-C>gggH<C-O>G
+"xnoremap <C-A> <C-C>ggVG
 
 " CTRL-Tab is Next window
 "noremap <C-Tab> <C-W>w
 "inoremap <C-Tab> <C-O><C-W>w
 "cnoremap <C-Tab> <C-C><C-W>w
 "onoremap <C-Tab> <C-C><C-W>w
-map <C-right> :tabn<CR>
-map <C-left> :tabp<CR>
+map <C-right> :bnext<CR>
+map <C-left>  :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
+
+" Open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
+
 
 " CTRL-F4 is Close window
 noremap <C-F4> <C-W>c
@@ -528,7 +551,7 @@ let NERDTreeWinSize=35
 " Gundo
 "------------------------------------------------------------
 
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :UndotreeToggle<CR>
 
 
 
@@ -565,7 +588,10 @@ let g:tagbar_type_scala = {
 " Powerline
 "------------------------------------------------------------
 
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+
+let g:airline#extensions#tabline#enabled = 1
 
 
 
@@ -613,14 +639,14 @@ filetype plugin on
 " the ghc below to a full path to the correct one
 
 " XXX: Disabling Haskellmode as it does not work well with Ack
-au BufEnter *.hs compiler ghc
+" au BufEnter *.hs compiler ghc
 
 " For this section both of these should be set to your
 " browser and ghc of choice, I used the following
 " two vim lines to get those paths:
 " :r!which google-chrome
 " :r!which ghc
-let g:ghc = "ghc"
+" let g:ghc = "ghc"
 
 
 
@@ -677,3 +703,22 @@ function! FindCabalSandboxRootPackageConf()
   return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
 endfunction
 
+
+
+"------------------------------------------------------------
+" GitGutter
+"------------------------------------------------------------
+
+let g:gitgutter_max_signs = 5000  
+
+
+"------------------------------------------------------------
+" Neocomplete
+"------------------------------------------------------------
+
+let g:neocomplete#enable_at_startup = 1
+
+" Disable NeoComplCache for certain filetypes
+if has('autocmd')
+  autocmd FileType pandoc,markdown nested NeoComplCacheLock
+endif

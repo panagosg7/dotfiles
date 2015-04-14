@@ -8,6 +8,17 @@
 
 
 "------------------------------------------------------------
+" Shell
+"------------------------------------------------------------
+
+" Vim needs a POSIX-Compliant shell. Fish is not.
+if $SHELL =~ 'bin/fish'
+  set shell=/bin/sh
+endif
+
+
+
+"------------------------------------------------------------
 " Vundle
 "------------------------------------------------------------
 
@@ -16,13 +27,10 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
-    !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-endif
 
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle (required!)
 Bundle 'gmarik/vundle'
@@ -144,7 +152,9 @@ Bundle 'Shougo/neocomplete.vim'
 " Bundle 'file:///Users/gmarik/path/to/plugin'
 " ...
 
-filetype plugin indent on     " required!
+" All of your Plugins must be added before the following line
+call vundle#end()             " required
+filetype plugin indent on     " required
 "
 " Brief help
 " :BundleList          - list configured bundles
@@ -193,23 +203,18 @@ set sw=2
 set textwidth=80
 
 " Background Color
-set background=dark
+set background=light
 
-set t_Co=16                        " force vim to use 256 colors
-" let g:solarized_termcolors=256      " use solarized 256 fallback
+set t_Co=256                        " force vim to use 256 colors
+let g:solarized_termcolors=256      " use solarized 256 fallback
 
 " Colorscheme
-" colorscheme solarized
-
+colorscheme solarized
 
 " Change the color of the current  line 
 " XXX: slowdown => following two lines are commented out
 " set cursorline
 " hi CursorLine term=bold cterm=bold guibg=Grey40
-
-" Font
-" set guifont=monospace\ 8
-
 
 
 "------------------------------------------------------------

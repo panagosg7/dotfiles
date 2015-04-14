@@ -9,7 +9,8 @@ files=".vim
        .bashrc        
        .screenrc      
        .git_prompt.zsh
-       .ctags" 
+       .ctags 
+       .tmux.conf"
 
 cd "$(dirname "${BASH_SOURCE}")"
   
@@ -38,12 +39,12 @@ doIt () {
     rsync -avzrq $i $HOME
   done
 
-  if [ ! -d "$HOME/.fonts/ubuntu-mono-powerline-ttf" ] ; then
-    git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-mono-powerline-ttf
-    fc-cache -vf ~/.fonts
-  fi
-  vim +BundleClean +qall
-  vim +BundleInstall +qall
+#  if [ ! -d "$HOME/.fonts/ubuntu-mono-powerline-ttf" ] ; then
+#    git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-mono-powerline-ttf
+#    fc-cache -vf ~/.fonts
+#  fi
+#  vim +BundleClean +qall
+#  vim +BundleInstall +qall
 
 }
 

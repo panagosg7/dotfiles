@@ -199,7 +199,7 @@ set t_Co=16                        " force vim to use 256 colors
 " let g:solarized_termcolors=256      " use solarized 256 fallback
 
 " Colorscheme
-colorscheme solarized
+" colorscheme solarized
 
 
 " Change the color of the current  line 

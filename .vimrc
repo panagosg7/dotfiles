@@ -727,3 +727,13 @@ let g:neocomplete#enable_at_startup = 1
 if has('autocmd')
   autocmd FileType pandoc,markdown nested NeoComplCacheLock
 endif
+
+
+
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif

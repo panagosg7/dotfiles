@@ -29,127 +29,140 @@ filetype off                   " required!
 
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 " let Vundle manage Vundle (required!)
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My Bundles here:
 
 " original repos on github
 
 " Fugitive: git wrapper (not terribly useful)
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " NerdTree: nuff said 
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 
 " Tabular: tabularize...
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 
 " NerdtreeTabs: nerdtree support
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 "NerdCommenter: easy commenting
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 
 " Undo-Tree: browse the undo tree
-Bundle 'mbbill/undotree'
+Plugin 'mbbill/undotree'
 
 " Tagbar: display tabs (not very useful so far...)
-Bundle 'majutsushi/tagbar'
-
-" Solarized: fancy colorscheme (my fork)
-Bundle 'panagosg7/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
 
 "VimMarkDown: syntax for markdown
-Bundle 'plasticboy/vim-markdown'
+Plugin 'plasticboy/vim-markdown'
 
 " Powerline: fancy command line
-" Bundle 'Lokaltog/vim-powerline'
+" Plugin 'Lokaltog/vim-powerline'
 
 " Airline
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 " Gitgutter: show git information on the side
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 
 " Syntastic: syntax checking plugin
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 
 " Hdevtools: Haskell development tools
 " vim-hdevtools require hdevtools - installed through cabal
-Bundle 'YPares/vim-hdevtools'
+Plugin 'YPares/vim-hdevtools'
 
 " Easymotion: Hit \\ to get easy access to places around your current position
-Bundle 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-easymotion'
 
 " LocalVim: Load your local vimrc file, named .lvimrc
-Bundle 'embear/vim-localvimrc'
+Plugin 'embear/vim-localvimrc'
 
 " Gitv: Gitk within Vim 
-Bundle 'gregsexton/gitv'
+Plugin 'gregsexton/gitv'
 
 " Ack: Grep-like tool within Vim - Requires acq-grep
-" Bundle 'panagosg7/ack.vim'
-Bundle 'mileszs/ack.vim'
+" Plugin 'panagosg7/ack.vim'
+" Plugin 'mileszs/ack.vim'
+Plugin 'dkprice/vim-easygrep'
 
 " CtrlP: Fuzzy Finder !!!
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 " Sensible: Defaults everyone can agree on
-Bundle 'tpope/vim-sensible'
+Plugin 'tpope/vim-sensible'
 
 " Haskell: a little better syntax
-" Bundle 'urso/haskell_syntax.vim'
-" Bundle 'travitch/hasksyn'
+" Plugin 'urso/haskell_syntax.vim'
+" Plugin 'travitch/hasksyn'
 
 " Lushtags: better tags for Haskell
-Bundle 'bitc/lushtags'
+Plugin 'bitc/lushtags'
 
 " ZoomWin: hit <C-w>o to zoom to single window
-Bundle 'vim-scripts/ZoomWin'
+Plugin 'vim-scripts/ZoomWin'
 
 " ToggleMouse: Use <F12> to toggle between Vim and terminal mode
-Bundle 'nvie/vim-togglemouse'
+Plugin 'nvie/vim-togglemouse'
 
 " Hoogle: use hoogle search in Vim
-" Bundle 'Twinside/vim-hoogle'
+" Plugin 'Twinside/vim-hoogle'
 
 " Haskellmode: support for GHCI in Vim
 " This fork fixes the command line height
-" Bundle 'kniren/haskellmode-vim'
+" Plugin 'kniren/haskellmode-vim'
 
 " HaskellFold: better Haskell folding
-Bundle 'Twinside/vim-haskellFold'
+" Plugin 'Twinside/vim-haskellFold'
+
+" Haskell indentation
+Plugin 'nbouscal/vim-stylish-haskell'
+
+" Ghc-mod: 
+" Plugin 'eagletmt/ghcmod-vim'
 
 " Session: Extended session management for Vim
-Bundle 'xolox/vim-session'
+Plugin 'xolox/vim-session'
 
 " VimMisc: Miscellaneous auto-load Vim scripts - needed for session
-Bundle 'xolox/vim-misc'
-
-" TypeScript
-Bundle 'leafgarland/typescript-vim'
+Plugin 'xolox/vim-misc'
 
 " Vim-Annotations
-Bundle 'panagosg7/vim-annotations'
+Plugin 'panagosg7/vim-annotations'
 
 " Vim NeoComplete
-Bundle 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neocomplete.vim'
 
+" VimProc
+Plugin 'Shougo/vimproc.vim'
 
+" typescript-vim: syntax for TS
+Plugin 'leafgarland/typescript-vim'
+
+" Tsuquyomi: checking for TS
+Plugin 'Quramy/tsuquyomi'
+
+" Solarized: Colorscheme
+Plugin 'altercation/vim-colors-solarized'
+
+Plugin 'gosukiwi/vim-atom-dark'
 
 
 " vim-scripts repos
-" Bundle 'L9'
-" Bundle 'FuzzyFinder'
+" Plugin 'L9'
+" Plugin 'FuzzyFinder'
 
 " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (ie. when working on your own plugin)
-" Bundle 'file:///Users/gmarik/path/to/plugin'
+" Plugin 'file:///Users/gmarik/path/to/plugin'
 " ...
 
 " All of your Plugins must be added before the following line
@@ -206,10 +219,10 @@ set textwidth=80
 set background=light
 
 set t_Co=256                        " force vim to use 256 colors
-let g:solarized_termcolors=256      " use solarized 256 fallback
 
-" Colorscheme
 colorscheme solarized
+
+" let g:solarized_termcolors=256      " use solarized 256 fallback
 
 " Change the color of the current  line 
 " XXX: slowdown => following two lines are commented out
@@ -351,7 +364,7 @@ set foldmethod=syntax
 " Tab Manupulation
 map <C-Q> :q<CR>
 set selectmode=mouse,key
-map <F11>  :tabp<CR>
+" map <F11>  :tabp<CR>
 map <F12>  :tabn<CR>
 
 " Find the word under cursor
@@ -627,6 +640,8 @@ let g:syntastic_haskell_check = [ 'hdevtools' ]
 
 let g:syntastic_typescript_check = [ 'tsc' ]
 
+map <F9>  :SyntasticCheck<CR>
+
 
 "------------------------------------------------------------
 " Haskellmode options
@@ -737,3 +752,12 @@ if &term =~ '^screen'
     execute "set <xRight>=\e[1;*C"
     execute "set <xLeft>=\e[1;*D"
 endif
+
+
+"------------------------------------------------------------
+" Omnicompletion
+"------------------------------------------------------------
+
+set omnifunc=syntaxcomplete#Complete
+
+

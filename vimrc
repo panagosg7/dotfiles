@@ -42,7 +42,7 @@ Plugin 'gmarik/vundle'
 " Fugitive: git wrapper (not terribly useful)
 Plugin 'tpope/vim-fugitive'
 
-" NerdTree: nuff said 
+" NerdTree: nuff said
 Plugin 'scrooloose/nerdtree'
 
 " Tabular: tabularize...
@@ -85,7 +85,7 @@ Plugin 'Lokaltog/vim-easymotion'
 " LocalVim: Load your local vimrc file, named .lvimrc
 Plugin 'embear/vim-localvimrc'
 
-" Gitv: Gitk within Vim 
+" Gitv: Gitk within Vim
 Plugin 'gregsexton/gitv'
 
 " Ack: Grep-like tool within Vim - Requires acq-grep
@@ -125,8 +125,8 @@ Plugin 'nvie/vim-togglemouse'
 " Haskell indentation
 Plugin 'nbouscal/vim-stylish-haskell'
 
-" Ghc-mod: 
-" Plugin 'eagletmt/ghcmod-vim'
+" Ghc-mod:
+Plugin 'eagletmt/ghcmod-vim'
 
 " Session: Extended session management for Vim
 Plugin 'xolox/vim-session'
@@ -138,7 +138,7 @@ Plugin 'xolox/vim-misc'
 Plugin 'panagosg7/vim-annotations'
 
 " Vim NeoComplete
-Plugin 'Shougo/neocomplete.vim'
+" Plugin 'Shougo/neocomplete.vim'
 
 " VimProc
 Plugin 'Shougo/vimproc.vim'
@@ -152,7 +152,13 @@ Plugin 'Quramy/tsuquyomi'
 " Solarized: Colorscheme
 Plugin 'altercation/vim-colors-solarized'
 
-Plugin 'gosukiwi/vim-atom-dark'
+" Atom one
+" Plugin 'lloeki/vim-one-colorschemes'
+
+
+" Plugin 'gosukiwi/vim-atom-dark'
+
+Plugin 'rking/ag.vim'
 
 
 " vim-scripts repos
@@ -187,7 +193,7 @@ filetype plugin indent on     " required
 "------------------------------------------------------------
 "
 " These options and commands enable some very useful features in Vim, that
-" no user should have to live without. 
+" no user should have to live without.
 
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
@@ -217,14 +223,19 @@ set textwidth=80
 
 " Background Color
 set background=light
+" set background=dark
 
 set t_Co=256                        " force vim to use 256 colors
 
 colorscheme solarized
+" colorscheme one-light
 
-" let g:solarized_termcolors=256      " use solarized 256 fallback
+let g:solarized_termtrans=1
 
-" Change the color of the current  line 
+
+let g:solarized_termcolors=256      " use solarized 256 fallback
+
+" Change the color of the current  line
 " XXX: slowdown => following two lines are commented out
 " set cursorline
 " hi CursorLine term=bold cterm=bold guibg=Grey40
@@ -622,11 +633,11 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 
 " You will probably have to add some extra options for hdevtools, for example:
-"let g:hdevtools_options = '-g-hide-package -glanguage-ecmascript-pp-0.11.1 
-"  \-g-XTypeSynonymInstances 
-"  \-g-XFlexibleInstances 
-"  \-g-XNoMonomorphismRestriction 
-"  \-g-ScopedTypeVariables 
+"let g:hdevtools_options = '-g-hide-package -glanguage-ecmascript-pp-0.11.1
+"  \-g-XTypeSynonymInstances
+"  \-g-XFlexibleInstances
+"  \-g-XNoMonomorphismRestriction
+"  \-g-ScopedTypeVariables
 "  \-g-XTupleSections'
 
 
@@ -636,11 +647,16 @@ au FileType haskell nnoremap <buffer> <silent> <F6> :HdevtoolsInfo<CR>
 
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [ ] }
 
-let g:syntastic_haskell_check = [ 'hdevtools' ]
+let g:syntastic_haskell_check = [ 'hdevtools', 'hlint' ]
 
 let g:syntastic_typescript_check = [ 'tsc' ]
 
+let g:syntastic_always_populate_loc_list = 1
+
 map <F9>  :SyntasticCheck<CR>
+
+map <A-n> : lnext<CR>
+map <A-p> : lprev<CR>
 
 
 "------------------------------------------------------------
@@ -688,6 +704,7 @@ filetype plugin on
 " Session options
 "------------------------------------------------------------
 let g:session_autosave = 'no'
+let g:session_autoload = 'no'
 
 
 
@@ -729,19 +746,19 @@ endfunction
 " GitGutter
 "------------------------------------------------------------
 
-let g:gitgutter_max_signs = 5000  
+let g:gitgutter_max_signs = 5000
 
 
 "------------------------------------------------------------
 " Neocomplete
 "------------------------------------------------------------
 
-let g:neocomplete#enable_at_startup = 1
-
-" Disable NeoComplCache for certain filetypes
-if has('autocmd')
-  autocmd FileType pandoc,markdown nested NeoComplCacheLock
-endif
+" let g:neocomplete#enable_at_startup = 1
+"
+" " Disable NeoComplCache for certain filetypes
+" if has('autocmd')
+"   autocmd FileType pandoc,markdown nested NeoComplCacheLock
+" endif
 
 
 
@@ -758,6 +775,5 @@ endif
 " Omnicompletion
 "------------------------------------------------------------
 
-set omnifunc=syntaxcomplete#Complete
-
+" set omnifunc=syntaxcomplete#Complete
 

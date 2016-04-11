@@ -3,14 +3,14 @@
 #####################
 #   Managed files   #
 #####################
-files=".vim           
-       .vimrc         
-       .zshrc         
-       .bashrc        
-       .screenrc      
-       .git_prompt.zsh
-       .ctags 
-       .tmux.conf"
+files="vim           
+       vimrc         
+       zshrc         
+       bashrc        
+       screenrc      
+       git_prompt.zsh
+       ctags 
+       tmux.conf"
 
 cd "$(dirname "${BASH_SOURCE}")"
   
@@ -22,9 +22,9 @@ backup () {
 
   #Backup
   mkdir $filename
-  for i in $files; do
-    echo "Backing up $HOME/$i ..."
-    mv $HOME/$i            $filename 2> /dev/null  
+  for file in $files; do
+    echo "Backing up $HOME/.$file ..."
+    mv $HOME/.$file $filename 2> /dev/null  
   done
   echo
   echo "Backed up configuration files in: $filename"
@@ -34,17 +34,10 @@ backup () {
 doIt () {
   echo
   read -p "Press [Enter] key to start install..."
-  for i in $files; do
-    echo "Copying $HOME/$i ..."
-    rsync -avzrq $i $HOME
+  for file in $files; do
+    echo "Copying $HOME/.$file ..."
+    rsync -avzrq $file $HOME/.$file
   done
-
-#  if [ ! -d "$HOME/.fonts/ubuntu-mono-powerline-ttf" ] ; then
-#    git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-mono-powerline-ttf
-#    fc-cache -vf ~/.fonts
-#  fi
-#  vim +BundleClean +qall
-#  vim +BundleInstall +qall
 
 }
 

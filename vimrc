@@ -29,20 +29,18 @@ filetype off                   " required!
 
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle (required!)
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " My Bundles here:
 
-" original repos on github
-
-" Fugitive: git wrapper (not terribly useful)
+" Fugitive: git wrapper
 Plugin 'tpope/vim-fugitive'
 
-" NerdTree: nuff said
+" NerdTree: A tree explorer plugin
 Plugin 'scrooloose/nerdtree'
 
 " Tabular: tabularize...
@@ -57,17 +55,12 @@ Plugin 'scrooloose/nerdcommenter'
 " Undo-Tree: browse the undo tree
 Plugin 'mbbill/undotree'
 
-" Tagbar: display tabs (not very useful so far...)
-Plugin 'majutsushi/tagbar'
-
 "VimMarkDown: syntax for markdown
 Plugin 'plasticboy/vim-markdown'
 
-" Powerline: fancy command line
-" Plugin 'Lokaltog/vim-powerline'
-
-" Airline
-Plugin 'bling/vim-airline'
+" Airline: replacement for powerline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Gitgutter: show git information on the side
 Plugin 'airblade/vim-gitgutter'
@@ -89,8 +82,6 @@ Plugin 'embear/vim-localvimrc'
 Plugin 'gregsexton/gitv'
 
 " Ack: Grep-like tool within Vim - Requires acq-grep
-" Plugin 'panagosg7/ack.vim'
-" Plugin 'mileszs/ack.vim'
 Plugin 'dkprice/vim-easygrep'
 
 " CtrlP: Fuzzy Finder !!!
@@ -98,10 +89,6 @@ Plugin 'kien/ctrlp.vim'
 
 " Sensible: Defaults everyone can agree on
 Plugin 'tpope/vim-sensible'
-
-" Haskell: a little better syntax
-" Plugin 'urso/haskell_syntax.vim'
-" Plugin 'travitch/hasksyn'
 
 " Lushtags: better tags for Haskell
 Plugin 'bitc/lushtags'
@@ -112,19 +99,6 @@ Plugin 'vim-scripts/ZoomWin'
 " ToggleMouse: Use <F12> to toggle between Vim and terminal mode
 Plugin 'nvie/vim-togglemouse'
 
-" Hoogle: use hoogle search in Vim
-" Plugin 'Twinside/vim-hoogle'
-
-" Haskellmode: support for GHCI in Vim
-" This fork fixes the command line height
-" Plugin 'kniren/haskellmode-vim'
-
-" HaskellFold: better Haskell folding
-" Plugin 'Twinside/vim-haskellFold'
-
-" Haskell indentation
-Plugin 'nbouscal/vim-stylish-haskell'
-
 " Ghc-mod:
 Plugin 'eagletmt/ghcmod-vim'
 
@@ -134,12 +108,6 @@ Plugin 'xolox/vim-session'
 " VimMisc: Miscellaneous auto-load Vim scripts - needed for session
 Plugin 'xolox/vim-misc'
 
-" Vim-Annotations
-Plugin 'panagosg7/vim-annotations'
-
-" Vim NeoComplete
-" Plugin 'Shougo/neocomplete.vim'
-
 " VimProc
 Plugin 'Shougo/vimproc.vim'
 
@@ -147,29 +115,14 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'leafgarland/typescript-vim'
 
 " Tsuquyomi: checking for TS
-Plugin 'Quramy/tsuquyomi'
+" Plugin 'Quramy/tsuquyomi'
 
-" Solarized: Colorscheme
-Plugin 'altercation/vim-colors-solarized'
-
-" Atom one
-" Plugin 'lloeki/vim-one-colorschemes'
-
-
-" Plugin 'gosukiwi/vim-atom-dark'
-
+" Ag: Vim plugin for the_silver_searcher, 'ag', a replacement 
+" for the Perl module / CLI script 'ack'
 Plugin 'rking/ag.vim'
 
-
-" vim-scripts repos
-" Plugin 'L9'
-" Plugin 'FuzzyFinder'
-
-" non github repos
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (ie. when working on your own plugin)
-" Plugin 'file:///Users/gmarik/path/to/plugin'
-" ...
+" Colorschemes
+Plugin 'lloeki/vim-one-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()             " required
@@ -207,10 +160,6 @@ filetype indent plugin on
 " Enable syntax highlighting
 syntax enable
 
-" Set Syntax for !D files
-au BufNewFile,BufRead *.dref set filetype=ocaml
-au BufNewFile,BufRead *.jsm set filetype=javascript
-
 " this is mostly a matter of taste. but LaTeX looks good with just a bit
 " of indentation.
 set sw=2
@@ -221,24 +170,13 @@ set sw=2
 
 set textwidth=80
 
-" Background Color
-set background=light
-" set background=dark
 
-set t_Co=256                        " force vim to use 256 colors
+"------------------------------------------------------------
+" Colors
+"------------------------------------------------------------
 
-colorscheme solarized
-" colorscheme one-light
-
-let g:solarized_termtrans=1
-
-
-let g:solarized_termcolors=256      " use solarized 256 fallback
-
-" Change the color of the current  line
-" XXX: slowdown => following two lines are commented out
-" set cursorline
-" hi CursorLine term=bold cterm=bold guibg=Grey40
+set t_Co=256
+colorscheme one-light
 
 
 "------------------------------------------------------------
@@ -262,11 +200,6 @@ set showcmd
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
-
-" Modelines have historically been a source of security vulnerabilities.  As
-" such, it may be a good idea to disable them and use the securemodelines
-" script, <http://www.vim.org/scripts/script.php?script_id=1876>.
-" set nomodeline
 
 
 
@@ -575,7 +508,6 @@ let NERDTreeQuitOnOpen=1
 let NERDTreeWinSize=35
 
 
-
 "------------------------------------------------------------
 " Gundo
 "------------------------------------------------------------
@@ -583,45 +515,14 @@ let NERDTreeWinSize=35
 nnoremap <F5> :UndotreeToggle<CR>
 
 
-
 "------------------------------------------------------------
-" Tagbar
-"------------------------------------------------------------
-
-nmap <F8> :TagbarToggle<CR>
-
-let g:tagbar_width=100
-let g:tagbar_autoclose=1
-let g:tagbar_autofocus=1
-
-" Special definitions for Scala
-let g:tagbar_type_scala = {
-    \ 'ctagstype' : 'Scala',
-    \ 'kinds'     : [
-        \ 'p:packages:1',
-        \ 'V:values',
-        \ 'v:variables',
-        \ 'T:types',
-        \ 't:traits',
-        \ 'o:objects',
-        \ 'a:aclasses',
-        \ 'c:classes',
-        \ 'r:cclasses',
-        \ 'm:methods'
-    \ ]
-    \ }
-
-
-
-"------------------------------------------------------------
-" Powerline
+" Airline
 "------------------------------------------------------------
 
-" let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy'
 let g:airline_powerline_fonts = 1
-
 let g:airline#extensions#tabline#enabled = 1
-
+let g:airline_theme='sol'
 
 
 "------------------------------------------------------------
@@ -699,7 +600,6 @@ filetype plugin on
 "let g:hasksyn_dedent_after_catchall_case = 1
 
 
-
 "------------------------------------------------------------
 " Session options
 "------------------------------------------------------------
@@ -707,28 +607,10 @@ let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
 
-
 "------------------------------------------------------------
 " Tabman options
 "------------------------------------------------------------
 let g:tabman_number = 0
-
-
-
-"------------------------------------------------------------
-" GVim Options
-"------------------------------------------------------------
-
-"if has("gui_running")
-"  if has("gui_gtk2")
-"    set guifont=Inconsolata\ \for\ PowerLine\ 10
-"    colorscheme pencil
-"  endif
-"endif
-
-
-let g:pencil_higher_contrast_ui = 1   " 0=low (def), 1=high
-
 
 
 
@@ -776,4 +658,12 @@ endif
 "------------------------------------------------------------
 
 " set omnifunc=syntaxcomplete#Complete
+
+
+"------------------------------------------------------------
+" Ocaml
+"------------------------------------------------------------
+
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
